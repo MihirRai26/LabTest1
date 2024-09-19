@@ -1,0 +1,45 @@
+CODE:
+import numpy as np
+import matplotlib.pyplot as plt
+cities=input("enter all cities").split()
+dictionary={}
+for i in cities:
+    arr=input("enter numbers").split()
+    dictionary[i]=np.array(arr)
+    
+
+print(dictionary)
+add_all(dictionary['lucknow'])
+
+def add_all(i):
+    z=0
+    for x in i:
+        z+=int(x)
+        return z
+p=add_all(dictionary['lucknow'])
+print (p)
+
+def average_all(i):
+    z=0
+    for x in range(1,len(i)):
+        z+=int(i[x])-int(i[x-1])
+        return z
+p=average_all(dictionary['lucknow'])
+print(p)
+
+def month_ov_month(i):
+    z={}
+    for x in range(1,len(i)):
+        z[x]=((int(i[x])-int(i[x-1])))/int(i[x-1])*100
+        return z
+p=month_ov_month(dictionary['lucknow'])
+p=np.array(p)
+print(p)
+
+r=np.array([1,2,3,4,5,6,7,8,9])
+z=plt.plot(r,p)
+plt.show()
+plt.xtitle("month")
+plt.ytitle("average rainfall")
+
+
